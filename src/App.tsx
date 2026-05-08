@@ -1,7 +1,7 @@
-import { LinkBioPage } from "./pages/LinkBioPage"
+import { HomePage } from "./pages/HomePage"
 
 function App() {
-  return <LinkBioPage />
+  return <HomePage />
 }
 
 export default App
