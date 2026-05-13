@@ -544,6 +544,144 @@ export function HomePage() {
           </div>
         </section>
 
+        {/* ═══ PRODUCTS ═══ */}
+        <section id="products" className="py-24 px-5 border-t border-violet-900/20">
+          <div className="max-w-7xl mx-auto">
+            <Section>
+              <motion.div variants={fadeUp} className="text-center mb-12">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-bold text-violet-300 uppercase tracking-widest mb-4"
+                  style={{ background: "rgba(124,58,237,0.1)", border: "1px solid rgba(124,58,237,0.25)" }}>
+                  Наши продукты
+                </div>
+                <h2 className="text-3xl lg:text-5xl font-black text-white tracking-tight mb-3">Инструменты для роста</h2>
+                <p className="text-gray-500 text-[14px] max-w-xl mx-auto">Подключайте отдельно или в связке — каждый продукт решает конкретную задачу</p>
+              </motion.div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                {[
+                  {
+                    tag: "Аналитика",
+                    color: "#a855f7",
+                    icon: "BarChart2",
+                    title: "Онлайн-платформа для оценки эффективности отдела продаж и отдела сервиса",
+                    subtitle: "С помощью неё вы автоматизируете отдел качества вашей компании",
+                    features: [
+                      "Показывает эффективность менеджеров в цифрах и обучает их",
+                      "Находит зоны роста для каждого менеджера и всего отдела в целом",
+                      "Упрощает и ускоряет работу руководителя отдела продаж до 10 раз",
+                    ],
+                    price: "от 2 500 ₽ / мес",
+                    promo: "Неделя бесплатно",
+                    promoColor: "#22c55e",
+                  },
+                  {
+                    tag: "Колл-центр",
+                    color: "#60a5fa",
+                    icon: "PhoneCall",
+                    title: "Удаленный колл-центр с живыми операторами",
+                    subtitle: null,
+                    features: [
+                      "Наши операторы приветствуют клиентов вашей компании точно так же, как ваши собственные сотрудники",
+                      "Даем первичную консультацию, помогаем, чтобы клиенты не ушли к конкурентам",
+                      "Оплата за фактическую работу",
+                    ],
+                    price: "от 6 900 ₽ / мес",
+                    promo: "1-ый месяц за 1490 ₽",
+                    promoColor: "#22c55e",
+                  },
+                  {
+                    tag: "WhatsApp",
+                    color: "#34d399",
+                    icon: "MessageCircle",
+                    title: "Виджет для переписки в WhatsApp из АМО и Битрикс24",
+                    subtitle: null,
+                    features: [
+                      "Помогают видеть, о чем общаются сотрудники с клиентом",
+                      "Несколько сотрудников могут работать с одним WA-номером",
+                    ],
+                    price: "от 1 950 ₽ / мес",
+                    promo: "3 дня бесплатно",
+                    promoColor: "#22c55e",
+                  },
+                  {
+                    tag: "Безопасность",
+                    color: "#f59e0b",
+                    icon: "Lock",
+                    title: "Сервис для шифрования номеров телефонов в АМО и Битрикс24",
+                    subtitle: null,
+                    features: [
+                      "Меняем реальные телефонные номера до попадания их в CRM-систему",
+                      "Сотрудники не смогут увести базу, потому что не видят реальных номеров, при этом могут переписываться и созваниваться с клиентами",
+                    ],
+                    price: "от 60 000 ₽ / мес",
+                    promo: null,
+                    promoColor: null,
+                  },
+                ].map((product, i) => (
+                  <motion.div key={i} variants={fadeUp}
+                    className="rounded-2xl overflow-hidden flex flex-col"
+                    style={{ background: "rgba(255,255,255,0.025)", border: "1px solid rgba(124,58,237,0.18)", backdropFilter: "blur(12px)" }}>
+
+                    {/* Top accent bar */}
+                    <div className="h-0.5" style={{ background: `linear-gradient(90deg, ${product.color}, transparent)` }} />
+
+                    <div className="p-6 flex flex-col flex-1">
+                      {/* Tag + icon */}
+                      <div className="flex items-center justify-between mb-5">
+                        <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[10px] font-bold uppercase tracking-wider"
+                          style={{ background: `${product.color}14`, border: `1px solid ${product.color}30`, color: product.color }}>
+                          <Icon name={product.icon} size={11} />
+                          {product.tag}
+                        </div>
+                        <div className="w-9 h-9 rounded-xl flex items-center justify-center"
+                          style={{ background: `${product.color}12`, border: `1px solid ${product.color}25` }}>
+                          <Icon name={product.icon} size={16} style={{ color: product.color }} />
+                        </div>
+                      </div>
+
+                      {/* Title */}
+                      <h3 className="text-[16px] font-bold text-white leading-snug mb-2">{product.title}</h3>
+                      {product.subtitle && (
+                        <p className="text-[12px] mb-3" style={{ color: product.color }}>{product.subtitle}</p>
+                      )}
+
+                      {/* Features */}
+                      <ul className="space-y-2 mb-6 flex-1">
+                        {product.features.map((f, fi) => (
+                          <li key={fi} className="flex items-start gap-2 text-[12px] text-gray-400 leading-relaxed">
+                            <div className="w-4 h-4 rounded-full flex items-center justify-center shrink-0 mt-0.5"
+                              style={{ background: `${product.color}18` }}>
+                              <Icon name="Check" size={9} style={{ color: product.color }} />
+                            </div>
+                            {f}
+                          </li>
+                        ))}
+                      </ul>
+
+                      {/* Price row */}
+                      <div className="flex items-center gap-3 mb-4">
+                        <span className="text-[18px] font-black text-white">{product.price}</span>
+                        {product.promo && (
+                          <span className="px-3 py-1 rounded-lg text-[11px] font-bold text-white"
+                            style={{ background: product.promoColor! }}>
+                            {product.promo}
+                          </span>
+                        )}
+                      </div>
+
+                      {/* CTA */}
+                      <button className="w-full py-3 rounded-xl text-[13px] font-bold transition-all duration-200 hover:opacity-90"
+                        style={{ background: "rgba(124,58,237,0.15)", border: "1px solid rgba(124,58,237,0.35)", color: "#c4b5fd" }}>
+                        Подробнее
+                      </button>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </Section>
+          </div>
+        </section>
+
         {/* ═══ FAQ ═══ */}
         <section className="py-24 px-5">
           <div className="max-w-3xl mx-auto">
